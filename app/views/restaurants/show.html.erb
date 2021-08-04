@@ -2,4 +2,25 @@
 
 <h2><%= @restaurant.name %></h2>
 <p><%= @restaurant.address %></p>
-<p><%= @restaurant.rating %></p>
+<p><%= @restaurant.phone_number %></p>
+<p><%= @restaurant.category %></p>
+<p><%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %></p>
+<p><%= link_to "Back", restaurants_path %></p>
+<table class="table">
+  <thead>
+    <tr>
+    	<th scope="col">#</th>
+      <th scope="col">content</th>
+      <th scope="col">rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @restaurant.reviews.each_with_index do |review, i|  %>
+      <tr>
+        <th scope="row"><%= i + 1 %></th>
+        <td><%= review.content %></td>
+        <td><%= review.rating %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

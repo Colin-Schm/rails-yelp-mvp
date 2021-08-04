@@ -1,6 +1,27 @@
-<h1>Index</h1>
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <li><%= restaurant.name %></li>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">phone_number</th>
+      <th scope="col">category</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <th scope="row"><%= restaurant.id %></th>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.address %></td>
+        <td><%= restaurant.phone_number %></td>
+        <td><%= restaurant.category %></td>
+        <td ><%= link_to 'Show', restaurant_path(restaurant), class: "btn btn-primary" %></td>
+      </tr>
   <% end %>
-</ul>
+  </tbody>
+</table>
+
+<p><%= link_to "Add a new restaurant", new_restaurant_path, class: "btn btn-primary" %></p>
